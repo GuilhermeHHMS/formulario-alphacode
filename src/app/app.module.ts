@@ -9,13 +9,17 @@ import { AlphacodeFormsComponent } from './alphacode-forms/alphacode-forms.compo
 import { AlphacodeToolbarComponent } from './alphacode-toolbar/alphacode-toolbar.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatGridListModule} from '@angular/material/grid-list';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
+import { AlphacodeCheckboxComponent } from './alphacode-checkbox/alphacode-checkbox.component';
+import {MatCardModule} from '@angular/material/card';
 
 @NgModule({
   declarations: [
     AppComponent,
     AlphacodeFormsComponent,
     AlphacodeToolbarComponent,
+    AlphacodeCheckboxComponent,
   ],
   imports: [
 
@@ -25,7 +29,9 @@ import {MatInputModule} from '@angular/material/input';
     MatToolbarModule,
     MatFormFieldModule,
     MatInputModule,
-    MatGridListModule
+    MatGridListModule,
+    MatCheckboxModule,
+    MatCardModule
   ],
   providers: [
     provideClientHydration(),

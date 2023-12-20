@@ -1,0 +1,15 @@
+
+  
+  .check-group {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    margin-inline: auto;
+
+}
+
+.custom-checkbox {
+
+    width: 85%;
+}

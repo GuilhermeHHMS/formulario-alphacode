@@ -1,60 +1,64 @@
+* ,*::after, *::before
+{
+ box-sizing: border-box;
+
+}
 * {
-    padding: 0;
-    margin-top: 30px;
-    box-sizing: border-box;
-  }
-
-  form {
-    width: 700px;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-  }
-
-  .form-container {
-    width: 85vw;
-    padding-right: 100px;
-  }
-
-  div.custom-forms {
-    width: calc(30%);
-    margin: 40px 0;
-    position: relative;
-  }
-
-  .custom-forms:nth-child(even) {
-    margin-left: 200px; 
-  }
-
-  .custom-forms label {
-    font-size: 15px;
-    position: absolute;
-    left: 0;
-    bottom: 35px;
-    color: rgb(150, 150, 150);
-    cursor: text;
-  }
-
- .custom-forms .input {
-    width: 150%;
-    padding: 5px;
-    color: rgb(150, 150, 150);
-    border: 0;
-    border-bottom: 2px solid rgb(200, 200, 200);
-    outline: 0;
-    transition: border-bottom 0.3s; 
-  }
-
-
-  .custom-forms .input:focus {
-  
-    border-bottom: 2px solid #068ED0;
-    color: black;
-
-  }
-
-.custom-forms label:hover{
-  color: #068ED0;
+  padding: 0;
+  margin-top: 30px;
+  box-sizing: border-box;
 }
 
+
+
+form {
+  height: 50vh;
+  margin-inline: auto;
+  flex-wrap: wrap;
   
+  justify-content: space-between;
+  display: flex;
+}
+
+div.custom-forms {
+  width: 40%;
+  margin: 30px 40px;
+
+  position: relative;
+
+}
+
+.custom-forms:nth-child(even) {
+  margin-left: 10px;
+}
+
+.custom-forms label {
+  font-size: 15px;
+  position: absolute;
+  left: 0;
+  bottom: 40px;
+  color: rgb(150, 150, 150);
+  cursor: text;
+}
+
+.custom-forms .input {
+  width: 100%;
+  padding: 5px;
+  color: rgb(150, 150, 150);
+  border: 0;
+  border-bottom: 2px solid rgb(200, 200, 200);
+  outline: 0;
+  transition: border-bottom 0.3s;
+}
+
+
+.custom-forms .input:focus {
+  
+  border-bottom: 2px solid #068ED0;
+  color: black;
+  
+}
+
+.custom-forms:has(input:focus) label{
+  color: #068ed0
+}
