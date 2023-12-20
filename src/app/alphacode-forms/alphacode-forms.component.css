@@ -1,3 +1,4 @@
+
 * ,*::after, *::before
 {
  box-sizing: border-box;
@@ -37,14 +38,14 @@ div.custom-forms {
   position: absolute;
   left: 0;
   bottom: 40px;
-  color: rgb(150, 150, 150);
+  color: #7e7e7e;
   cursor: text;
 }
 
 .custom-forms .input {
   width: 100%;
   padding: 5px;
-  color: rgb(150, 150, 150);
+  color:#7e7e7e;
   border: 0;
   border-bottom: 2px solid rgb(200, 200, 200);
   outline: 0;

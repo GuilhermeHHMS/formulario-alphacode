@@ -13,6 +13,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatInputModule} from '@angular/material/input';
 import { AlphacodeCheckboxComponent } from './alphacode-checkbox/alphacode-checkbox.component';
 import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import {MatCardModule} from '@angular/material/card';
     MatInputModule,
     MatGridListModule,
     MatCheckboxModule,
-    MatCardModule
+    MatCardModule,
+    MatButtonModule
   ],
   providers: [
     provideClientHydration(),

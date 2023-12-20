@@ -1,5 +1,9 @@
 
   
+.checkbox-text {
+    color: #7e7e7e;
+}
+
   .check-group {
     margin-top: 50px;
     display: grid;
@@ -13,3 +17,4 @@
 
     width: 85%;
 }
+
