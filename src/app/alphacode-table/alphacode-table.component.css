@@ -1,0 +1,40 @@
+
+div {
+
+    display: flex;
+    justify-content: center;
+
+}
+
+
+mat-card{
+    display: flex;
+    margin-top: 100px;
+    align-content: center;
+    width: 93%;
+  
+}
+
+
+.custom-toolbar {
+    height: 30px;
+    justify-content: space-around;
+}
+
+.custom-tbody {
+    
+    justify-content: space-around;
+    width: 50%;
+}
+
+td {
+    font-size: 11px;
+    width: 10%;
+    text-align: center;
+  vertical-align: middle;
+}
+
+mat-card-content {
+    outline: 1px solid red;
+    height: 10px;
+}

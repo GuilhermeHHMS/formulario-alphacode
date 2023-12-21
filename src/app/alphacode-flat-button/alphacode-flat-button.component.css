@@ -1,0 +1,31 @@
+.button-group {
+   margin-top: 5vh;
+   width: 55vw;
+   /* outline: 1px solid red; */
+   margin-inline: auto;
+   display: flex;
+   justify-content: end;
+}
+
+.custom-button{
+   border: 0;
+   border-radius: 5px;
+   background-color: #56B2DF;
+   width: 160px;
+   height: 35px;
+
+}
+
+
+
+.custom-button:active {
+   background-color: #0079b6;
+   transition-duration: 0.2s;
+}
+
+label {
+   font-family: Roboto, "Helvetica Neue", sans-serif;
+   font-size: 1.1em;
+   color: white;
+   font-weight: 400;
+}

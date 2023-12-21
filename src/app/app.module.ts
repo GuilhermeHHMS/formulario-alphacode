@@ -14,6 +14,10 @@ import {MatInputModule} from '@angular/material/input';
 import { AlphacodeCheckboxComponent } from './alphacode-checkbox/alphacode-checkbox.component';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
+import { AlphacodeFlatButtonComponent } from './alphacode-flat-button/alphacode-flat-button.component';
+import {MatTableModule} from '@angular/material/table';
+import { AlphacodeTableComponent } from './alphacode-table/alphacode-table.component';
+
 
 @NgModule({
   declarations: [
@@ -21,6 +25,8 @@ import {MatButtonModule} from '@angular/material/button';
     AlphacodeFormsComponent,
     AlphacodeToolbarComponent,
     AlphacodeCheckboxComponent,
+    AlphacodeFlatButtonComponent,
+    AlphacodeTableComponent,
   ],
   imports: [
 
@@ -33,7 +39,8 @@ import {MatButtonModule} from '@angular/material/button';
     MatGridListModule,
     MatCheckboxModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatTableModule
   ],
   providers: [
     provideClientHydration(),
