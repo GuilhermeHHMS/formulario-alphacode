@@ -1,40 +1,76 @@
-
 div {
-
     display: flex;
     justify-content: center;
-
 }
 
-
-mat-card{
-    display: flex;
-    margin-top: 100px;
-    align-content: center;
-    width: 93%;
-  
+table {
+    width: 100%;
+    border-collapse: collapse;
 }
 
-
-.custom-toolbar {
-    height: 30px;
-    justify-content: space-around;
-}
-
-.custom-tbody {
-    
-    justify-content: space-around;
-    width: 50%;
+mat-card {
+    display: block;
+    height: 40px;
 }
 
 td {
     font-size: 11px;
     width: 10%;
     text-align: center;
-  vertical-align: middle;
+    vertical-align: middle;
 }
 
-mat-card-content {
-    outline: 1px solid red;
-    height: 10px;
+tr {
+    display: block;
+    padding-top: 10px;
+
+}
+
+.div-toolbar {
+    display: flex;
+
+}
+
+
+.main-group {
+    display: flex;
+
+    align-content: center;
+    width: 93%;
+
+}
+
+.action-image {
+
+    width: 18px;
+    height: 18px;
+}
+
+.custom-toolbar {
+    height: 30px;
+    width: 93%;
+    justify-content: space-around;
+}
+
+.custom-tbody {
+    justify-content: space-around;
+    width: 50%;
+}
+
+.scrollable-container {
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+
+
+
+
+
+
+
+.scrollable {
+    max-height: 300px;
+    /* ou qualquer altura desejada */
+    overflow-y: auto;
 }
