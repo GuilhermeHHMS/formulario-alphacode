@@ -3,19 +3,21 @@ import { BrowserModule, provideClientHydration } from '@angular/platform-browser
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from "@angular/common/http";
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import {MatToolbarModule} from '@angular/material/toolbar';
+import { MatToolbarModule } from '@angular/material/toolbar';
 import { AlphacodeFormsComponent } from './alphacode-forms/alphacode-forms.component';
 import { AlphacodeToolbarComponent } from './alphacode-toolbar/alphacode-toolbar.component';
-import {MatFormFieldModule} from '@angular/material/form-field';
-import {MatGridListModule} from '@angular/material/grid-list';
-import {MatCheckboxModule} from '@angular/material/checkbox';
-import {MatInputModule} from '@angular/material/input';
-import { AlphacodeCheckboxComponent } from './alphacode-checkbox/alphacode-checkbox.component';
-import {MatCardModule} from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import { AlphacodeFlatButtonComponent } from './alphacode-flat-button/alphacode-flat-button.component';
-import {MatTableModule} from '@angular/material/table';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatGridListModule } from '@angular/material/grid-list';
+import { MatCheckboxModule } from '@angular/material/checkbox';
+import { MatInputModule } from '@angular/material/input';
+
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule } from '@angular/material/button';
+
+import { MatTableModule } from '@angular/material/table';
 import { AlphacodeTableComponent } from './alphacode-table/alphacode-table.component';
 
 
@@ -24,8 +26,6 @@ import { AlphacodeTableComponent } from './alphacode-table/alphacode-table.compo
     AppComponent,
     AlphacodeFormsComponent,
     AlphacodeToolbarComponent,
-    AlphacodeCheckboxComponent,
-    AlphacodeFlatButtonComponent,
     AlphacodeTableComponent,
   ],
   imports: [
@@ -40,11 +40,14 @@ import { AlphacodeTableComponent } from './alphacode-table/alphacode-table.compo
     MatCheckboxModule,
     MatCardModule,
     MatButtonModule,
-    MatTableModule
+    MatTableModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [
     provideClientHydration(),
-    
+
   ],
   bootstrap: [AppComponent]
 })

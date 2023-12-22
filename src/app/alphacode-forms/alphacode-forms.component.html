@@ -1,36 +1,67 @@
 <div class="forms-group">
+  <form [formGroup]="userForm" (ngSubmit)="submit()" #formDir="ngForm">
+    <div class="alphacode-form">
 
-  <form class="alphacode-form">
-    <div class="custom-forms">
-      <label for="nomeCompleto">Nome completo</label>
-      <input type="text" class="input" id="nomeCompleto" placeholder="Ex.: Letícia Pacheco dos Santos">
+      <div class="custom-forms">
+        <label for="nomeCompleto">Nome completo</label>
+        <input type="text" class="input" formControlName="nomeContato" id="nomeCompleto"
+          placeholder="Ex.: Letícia Pacheco dos Santos">
+      </div>
+
+      <div class="custom-forms">
+        <label for="dataNascimento">Data de nascimento</label>
+        <input type="text" class="input" formControlName="dataNascimento" id="dataNascimento" placeholder="hello">
+      </div>
+
+      <div class="custom-forms">
+        <label for="email">Email</label>
+        <input type="text" class="input" formControlName="email" id="email" placeholder="hello">
+      </div>
+
+      <div class="custom-forms">
+        <label for="profissao">Profissão</label>
+        <input type="text" class="input" formControlName="profissao" id="profissao" placeholder="hello">
+      </div>
+
+      <div class="custom-forms">
+        <label for="telefoneContato">Telefone para contato</label>
+        <input type="text" class="input" formControlName="telefoneContato" id="telefoneContato" placeholder="hello">
+      </div>
+
+      <div class="custom-forms">
+        <label for="celularContato">Celular para contato</label>
+        <input type="text" class="input" formControlName="celularContato" id="celularContato" placeholder="hello">
+      </div>
     </div>
-    
-    <div class="custom-forms">
-      <label for="dataNascimento">Data de nascimento</label>
-      <input type="text" class="input" id="dataNascimento" placeholder="hello">
+
+
+    <div class="check-group">
+      <mat-checkbox class="custom-checkbox" value="whatsapp">
+        <label class="checkbox-text" for="whatsapp">
+          Número de celular possui Whatsapp
+        </label>
+      </mat-checkbox>
+
+      <mat-checkbox class="custom-checkbox" value="sms">
+        <label class="checkbox-text" for="sms">
+          Enviar notificações por SMS
+        </label>
+      </mat-checkbox>
+
+      <mat-checkbox class="custom-checkbox" value="email">
+        <label class="checkbox-text" for="email">
+          Enviar notificações por E-mail
+        </label>
+      </mat-checkbox>
+
     </div>
-    
-    <div class="custom-forms">
-      <label for="email">Email</label>
-      <input type="text" class="input" id="email" placeholder="hello">
-    </div>
-    
-    <div class="custom-forms">
-      <label for="profissao">Profissão</label>
-      <input type="text" class="input" id="profissao" placeholder="hello">
-    </div>
-    
-    <div class="custom-forms">
-      <label for="telefoneContato">Telefone para contato</label>
-      <input type="text" class="input" id="telefoneContato" placeholder="hello">
-    </div>
-    
-    <div class="custom-forms">
-      <label for="celularContato">Celular para contato</label>
-      <input type="text" class="input" id="celularContato" placeholder="hello">
+
+    <div class="button-group">
+      <button class="custom-button" type="submit">
+        <span>
+          Cadastrar contato
+        </span>
+      </button>
     </div>
   </form>
-  
-  
 </div>

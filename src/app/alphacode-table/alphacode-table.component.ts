@@ -1,4 +1,7 @@
 import { Component, Injectable } from '@angular/core';
+import { UserService } from '../services/user-service';
+import { FormDataService } from '../services/form-data.service';
+import { takeLast } from 'rxjs';
 
 
 @Component({
@@ -11,91 +14,75 @@ import { Component, Injectable } from '@angular/core';
 
 
 export class AlphacodeTableComponent {
-  deleteUser(tableUser: User) {
-    console.log('deletando' + tableUser.name);
-  }
-  editUser(tableUser: User) {
-    console.log('editando' + tableUser.name);
-  }
-
-
-  constructor(public usersService: UsersService) { }
+  
+  
+  constructor(private userService: UserService, private formDataService: FormDataService) { }
   users: User[] = [];
   ngOnInit() {
-    this.users = this.usersService.getUsers();
+    
+    this.exibirCadastro();
   }
-}
-
-@Injectable({
-  providedIn: 'root',
-})
-export class UsersService {
-  users: User[] = [
-    {
-      name: 'Alice Maria fernandes ferreira',
-      date: new Date('2000-01-01'),
-      email: 'alice@example.com',
-      cell: '11 99999-9999',
-    },
-    {
-      name: 'Bob',
-      date: new Date('2001-02-02'),
-      email: 'bob@example.com',
-      cell: '11 98888-8888',
-    },
-    {
-      name: 'Charlie',
-      date: new Date('2002-03-03'),
-      email: 'charlie@example.com',
-      cell: '11 97777-7777',
-    },
-    {
-      name: 'bro',
-      date: new Date('2002-03-03'),
-      email: 'charlie@example.com',
-      cell: '11 97777-7777',
-    },
-    {
-      name: 'bro',
-      date: new Date('2002-03-03'),
-      email: 'charlie@example.com',
-      cell: '11 97777-7777',
-    },
-    {
-      name: 'bro',
-      date: new Date('2002-03-03'),
-      email: 'charlie@example.com',
-      cell: '11 97777-7777',
-    },
-    {
-      name: 'bro',
-      date: new Date('2002-03-03'),
-      email: 'charlie@example.com',
-      cell: '11 97777-7777',
-    },
-    {
-      name: 'bro',
-      date: new Date('2002-03-03'),
-      email: 'charlie@example.com',
-      cell: '11 97777-7777',
-    },
-  ];
-
-  getUsers(): User[] {
-    return this.users;
+  
+  exibirCadastro() {
+    this.userService.lerDadosSalvos().subscribe({
+      next: (response: User[]) => {
+        if (Array.isArray(response)) {
+          this.users = response;
+          console.log('Dados lidos:', this.users);
+        } else {
+          console.error('A resposta do servidor não é um array:', response);
+        }
+      },
+      error: (error) => {
+        console.error('Erro ao ler dados:', error);
+      }
+    });
   }
+
+  atualizarCadastro(tableUser: User) {
+    this.userService.atualizarDadosSalvos(tableUser.id, FormDataService).subscribe({
+      next: (response: User[]) => {
+        this.users = response;
+        console.log('Dados lidos:', this.users);
+      },
+      error: (error) => {
+        console.error('Erro ao ATUALIZAR dados:', error);
+      }
+    });
+  }
+
+  deletarCadastro(tableUser: User) {
+    console.log(tableUser.id);
+    this.userService.deletarDadosSalvos(tableUser.id).subscribe({
+      next: (response: User[]) => {
+        this.users = response;
+        console.log('Dados lidos:', this.users);
+      },
+      error: (error) => {
+        console.error('Erro ao DELETAR dados:', error);
+      }
+    });
+  }
+
+
 }
 
 export class User {
-  name: string;
-  date: Date;
+  id: any;
+  nomeContato: string;
+  dataNascimento: string;
   email: string;
-  cell: string;
+  profissao: string;
+  telefoneContato: string;
+  celularContato: string;
 
-  constructor(name: string, date: Date, email: string, cell: string) {
-    this.name = name;
-    this.date = date;
+  constructor(id: any, nomeContato: string, dataNascimento: string, email: string, profissao: string, telefoneContato: string, celularContato: string) {
+    this.id = id;
+    this.nomeContato = nomeContato;
+    this.dataNascimento = dataNascimento;
     this.email = email;
-    this.cell = cell;
+    this.profissao = profissao;
+    this.telefoneContato = telefoneContato;
+    this.celularContato = celularContato;
   }
 }

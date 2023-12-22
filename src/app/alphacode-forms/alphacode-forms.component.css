@@ -1,9 +1,10 @@
-
-* ,*::after, *::before
-{
- box-sizing: border-box;
-
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  
 }
+
 * {
   padding: 0;
   margin-top: 30px;
@@ -11,12 +12,20 @@
 }
 
 
+span {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 1.1em;
+  color: white;
+  font-weight: 400;
+}
 
-form {
+/* FORMS */
+
+.alphacode-form {
   height: 50vh;
   margin-inline: auto;
   flex-wrap: wrap;
-  
+
   justify-content: space-between;
   display: flex;
 }
@@ -24,7 +33,6 @@ form {
 div.custom-forms {
   width: 40%;
   margin: 30px 40px;
-
   position: relative;
 
 }
@@ -45,7 +53,7 @@ div.custom-forms {
 .custom-forms .input {
   width: 100%;
   padding: 5px;
-  color:#7e7e7e;
+  color: #7e7e7e;
   border: 0;
   border-bottom: 2px solid rgb(200, 200, 200);
   outline: 0;
@@ -54,12 +62,56 @@ div.custom-forms {
 
 
 .custom-forms .input:focus {
-  
+
   border-bottom: 2px solid #068ED0;
   color: black;
-  
+
 }
 
-.custom-forms:has(input:focus) label{
+.custom-forms:has(input:focus) label {
   color: #068ed0
+}
+
+/* CHECKBOX */
+.checkbox-text {
+  color: #7e7e7e;
+}
+
+.check-group {
+  position: relative;
+  margin-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  justify-items: center;
+  margin-inline: auto;
+
+}
+
+.custom-checkbox {
+
+  width: 85%;
+}
+
+/* BUTTON */
+.button-group {
+  width: 55vw;
+  margin-bottom: 5vh;
+  margin-inline: auto;
+  display: flex;
+  justify-content: end;
+}
+
+.custom-button {
+  border: 0;
+  border-radius: 5px;
+  background-color: #56B2DF;
+  width: 160px;
+  height: 35px;
+
+}
+
+
+.custom-button:active {
+  background-color: #0079b6;
+  transition-duration: 0.2s;
 }

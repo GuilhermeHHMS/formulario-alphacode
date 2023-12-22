@@ -1,4 +1,3 @@
-
 <div class="div-toolbar">
 
     <mat-toolbar class="custom-toolbar" color="primary">
@@ -12,28 +11,27 @@
 
 <div class="scrollable-container">
     <div class="main-group">
-        
+
         <table>
             <tbody class="custom-tbody">
-                <tr *ngFor="let user of usersService.getUsers()">
+                <tr *ngFor="let user of users">
                     <mat-card>
-                        <td>{{ user.name }}</td>
-                        <td>{{ user.date | date }}</td>
-                        <td>{{ user.email }}</td>
-                        <td>{{ user.cell }}</td>
+                        <td>{{ user.nomeContato || 'N/A' }}</td>
+                        <td>{{ user.dataNascimento || 'N/A' }}</td>
+                        <td>{{ user.email || 'N/A' }}</td>
+                        <td>{{ user.celularContato || 'N/A' }}</td>
                         <td>
-                            <button mat-button (click)="editUser(user)">
-                            <img src="assets/alphacode_assets/editar.png" class="action-image" alt="Editar">
+                            <button mat-button (click)="atualizarCadastro(user)">
+                                <img src="assets/alphacode_assets/editar.png" class="action-image" alt="Editar">
                             </button>
-                            <button mat-button (click)="deleteUser(user)">
-                                <img src="assets/alphacode_assets/excluir.png" class="action-image"  alt="Excluir">
+                            <button mat-button (click)="deletarCadastro(user)">
+                                <img src="assets/alphacode_assets/excluir.png" class="action-image" alt="Excluir">
                             </button>
                         </td>
                     </mat-card>
-                    </tr>
-                </tbody>
-                
-            </table>
+                </tr>
+            </tbody>
+
+        </table>
     </div>
-  </div>
-  
+</div>
