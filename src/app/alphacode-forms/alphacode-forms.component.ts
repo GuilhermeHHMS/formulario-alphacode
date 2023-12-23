@@ -17,6 +17,8 @@ export class AlphacodeFormsComponent implements OnInit {
 
 
   ngOnInit() {
+
+    this.userService.lerDadosSalvos();
     this.userForm = new FormGroup({
       nomeContato: new FormControl(''),
       dataNascimento: new FormControl(''),
@@ -38,11 +40,13 @@ export class AlphacodeFormsComponent implements OnInit {
     this.userService.enviarDadosFormulario(dadosFormulario).subscribe({
       next: (resposta) => {
         console.log('Resposta do servidor:', resposta);
+        this.userService.lerDadosSalvos();
       },
       error: (erro) => {
         console.error('Erro ao enviar dados para o servidor:', erro);
       }
     });
+    location.reload();
   }
 
 }

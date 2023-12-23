@@ -1,59 +1,65 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, catchError, switchMap, throwError } from 'rxjs';
 import { User } from '../alphacode-table/alphacode-table.component';
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
+  private listaAtualizada = new BehaviorSubject<User[]>([]);
+  listaAtualizada$ = this.listaAtualizada.asObservable();
+
+  // ...
+
+  
 
 
   private apiUrl = 'http://localhost:8000';
 
   constructor(private http: HttpClient) { }
 
-  
-  enviarDadosFormulario(dadosFormulario: any): Observable<any> {
-    
+
+  enviarDadosFormulario(dados: any): Observable<any> {
     const headers = new HttpHeaders({
-    'Content-Type': 'application/json',
+      'Content-Type': 'application/json',
     });
 
-    console.log(dadosFormulario);
-
-    return this.http.post(`${this.apiUrl}/user_api.php?action=create`, dadosFormulario, {headers});
+    return this.http.post(`${this.apiUrl}/create.php`, dados, { headers })
+   
   }
 
-  lerDadosSalvos(): Observable<User[]>{
+  lerDadosSalvos(): Observable<User[]> {
 
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      });
-  
-    return this.http.get<User[]>(`${this.apiUrl}/user_api.php?action=read`, { headers });
+    });
+
+    return this.http.get<User[]>(`${this.apiUrl}/read.php`, { headers });
   }
 
-  atualizarDadosSalvos(id: any, dadosFormulario: any): Observable<any> {
+  atualizarDadosSalvos( dadosFormulario: any): Observable<any> {
     const headers = new HttpHeaders({
       'Content-Type': 'application/json',
-      });
-  
+    });
 
-    return this.http.post(`${this.apiUrl}/user_api.php?action=update&id=${id}`, dadosFormulario, { headers});
-
+    const options = {
+      headers,
+      responseType: 'text' as 'json', // Set the responseType to 'text'
+    };
+    
+    
+    return this.http.post(`${this.apiUrl}/update.php`, dadosFormulario, options);
   }
 
 
-  deletarDadosSalvos(id: string): Observable<any> {
-
+  deletarDadosSalvos(id: string): Observable<User[]> {
     const headers = new HttpHeaders({
-      'Content-Type': 'application/json',
-      });
-  
-      console.log('Dados a serem enviados:', id);
+        'Content-Type': 'application/json',
+    });
 
-    return this.http.post(`${this.apiUrl}/user_api.php?action=delete&id=${id}`, null, { headers });
+    const body = { id: id };
+    return this.http.post<any>(`${this.apiUrl}/delete.php`, body, { headers })
 
-  }
+}
 }

@@ -1,34 +1,31 @@
-import { Component, Injectable } from '@angular/core';
+import { Component,} from '@angular/core';
 import { UserService } from '../services/user-service';
 import { FormDataService } from '../services/form-data.service';
-import { takeLast } from 'rxjs';
 
 
 @Component({
   selector: 'app-alphacode-table',
   templateUrl: './alphacode-table.component.html',
-  styleUrl: './alphacode-table.component.css'
+  styleUrls: ['./alphacode-table.component.css']
 })
-
-
-
-
 export class AlphacodeTableComponent {
-  
+
+  users?: User[];
   
   constructor(private userService: UserService, private formDataService: FormDataService) { }
-  users: User[] = [];
+  
   ngOnInit() {
     
     this.exibirCadastro();
   }
-  
+
   exibirCadastro() {
     this.userService.lerDadosSalvos().subscribe({
       next: (response: User[]) => {
         if (Array.isArray(response)) {
           this.users = response;
           console.log('Dados lidos:', this.users);
+
         } else {
           console.error('A resposta do servidor não é um array:', response);
         }
@@ -37,34 +34,46 @@ export class AlphacodeTableComponent {
         console.error('Erro ao ler dados:', error);
       }
     });
+
   }
 
   atualizarCadastro(tableUser: User) {
-    this.userService.atualizarDadosSalvos(tableUser.id, FormDataService).subscribe({
+    this.formDataService.setDadosFormulario(tableUser);
+
+    this.userService.atualizarDadosSalvos(tableUser).subscribe({
       next: (response: User[]) => {
         this.users = response;
-        console.log('Dados lidos:', this.users);
+        console.log('Dados atualizados:', this.users);
+
       },
       error: (error) => {
         console.error('Erro ao ATUALIZAR dados:', error);
+      },
+      complete: () => {
+        this.exibirCadastro();
       }
     });
+    // location.reload();
   }
 
   deletarCadastro(tableUser: User) {
+
     console.log(tableUser.id);
     this.userService.deletarDadosSalvos(tableUser.id).subscribe({
-      next: (response: User[]) => {
-        this.users = response;
-        console.log('Dados lidos:', this.users);
+      next: () => {
+        this.users = this.users!.filter(u => u.id !== tableUser);
+        console.log('Usuário deletado:', tableUser);
+   
       },
       error: (error) => {
         console.error('Erro ao DELETAR dados:', error);
+      },
+      complete: () => {
+        this.exibirCadastro();
       }
     });
+    location.reload();
   }
-
-
 }
 
 export class User {
