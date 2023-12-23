@@ -1,6 +1,6 @@
 # AlphacodeTest
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.0.7.
+This is a form project requested by the company Alphacode.
 
 ## Development server
 
